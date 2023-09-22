@@ -41,16 +41,20 @@ posts = [
                 Весь этот день я хлопотал  около вещей: укрывал и
                 укутывал их, чтобы не испортились от дождя.''',
     },
-] 
+]
+# Create your views here.
 
-#Create your views here.
+
 def index(request):
     template_name = 'html/index.html'
     return render(request, template_name)
 
-def post_detail(request):
+
+def post_detail(request, pk):
     template_name = 'html/detail.html'
-    return render(request, template_name)
+    context = {'post': posts[pk]}
+    return render(request, template_name, context)
+
 
 def category_posts(request):
     template_name = 'html/category.html'
