@@ -1,3 +1,6 @@
+{% load static %}
+{% with request.resolver_match.view_name as v_n %}
+
 <!DOCTYPE html> 
 <html lang="ru">
   {% include "includes/head.html" %}
@@ -9,3 +12,4 @@
     {% include "includes/footer.html" %}
   </body>
 </html>
+{% endwith %}

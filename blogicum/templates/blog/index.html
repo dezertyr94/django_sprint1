@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% load static %}
+{% with request.resolver_match.view_name as v_n %}
 
 {% block title %}Лента записей{% endblock %}
 
@@ -26,3 +28,4 @@
         </article> 
     {% endfor %}         
 {% endblock %}
+{% endwith %}
