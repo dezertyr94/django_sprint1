@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% load static %}
-{% with request.resolver_match.view_name as v_n %}
 
 {% block title %}{{ post.date }} {{ post.location }}{% endblock %}
 
@@ -15,13 +14,12 @@
           Дата: {{ post.date }}
         </li>
         <li>
-          Категория: <a href="not-my-day">not-my-day</a>
+        Категория: <a href="{% url 'blog:category_posts' post.category %}">{{ post.category }}</a>
         </li>
       </ul>         
       <p>
-        {{ post.text|linebreaksbr }}
+        {{ post.text|linebreaksbr:10 }}
       </p>          
     </article>                
   </div>
 {% endblock %}
-{% endwith %}

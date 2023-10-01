@@ -1,12 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
-{% with request.resolver_match.view_name as v_n %}
 
-{% block title %}Публикации в категории - personal{% endblock %}
+{% block title %}{{ cat_slug }}{% endblock %}
 
 {% block content %}
   <div class="container py-5">
-    <h1>Публикации в категории - personal</h1>   
+    <h1>Публикации в категории - {{ cat_slug }}</h1>   
   </div>
 {% endblock %}
-{% endwith %}

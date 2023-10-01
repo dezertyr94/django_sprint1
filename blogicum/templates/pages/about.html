@@ -64,7 +64,6 @@
 </html> -->
 {% extends "base.html" %}
 {% load static %}
-{% with request.resolver_match.view_name as v_n %}
 
 {% block title %}О проекте{% endblock %}
 
@@ -88,5 +87,4 @@
   </div>
 
 {% endblock %}
-{% endwith %}
 

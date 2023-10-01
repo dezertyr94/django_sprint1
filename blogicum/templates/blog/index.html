@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% load static %}
-{% with request.resolver_match.view_name as v_n %}
 
 {% block title %}Лента записей{% endblock %}
 
@@ -18,7 +17,7 @@
               Дата: {{ poster.date }}
             </li>
             <li>
-              Категория: <a href="not-my-day">not-my-day</a>
+              Категория: <a href=" {% url 'blog:category_posts' poster.category %}">{{ poster.category }}</a>
             </li>
           </ul>
           <p>
@@ -28,4 +27,3 @@
         </article> 
     {% endfor %}         
 {% endblock %}
-{% endwith %}
