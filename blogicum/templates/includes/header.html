@@ -1,5 +1,5 @@
-{% with request.resolver_match.view_name as v_n %}
 {% load static %}
+{% with request.resolver_match.view_name as v_n %}
 
 <header>
   <nav class="navbar navbar-light" style="background-color: lightskyblue">
@@ -10,28 +10,28 @@
       </a>        
       <ul class="nav  nav-pills">
         <li class="nav-item">
-          <a class="nav-link" 
+          <a class="nav-link 
             {% if v_n == 'blog:index' %}
               active
-            {% endif %}
+            {% endif %}"
             href="{% url 'blog:index' %}">
             Лента записей
           </a>
         </li>
         <li class="nav-item">              
-          <a class="nav-link"
+          <a class="nav-link
             {% if v_n == 'pages:about' %}
               active
-            {% endif %} 
+            {% endif %}"
             href="{% url 'pages:about' %}">
             О проекте
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" 
+          <a class="nav-link
             {% if v_n == 'pages:rules' %}
               active
-            {% endif %}
+            {% endif %}"
           href="{% url 'pages:rules' %}">
             Наши правила
           </a>

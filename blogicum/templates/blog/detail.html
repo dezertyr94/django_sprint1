@@ -1,10 +1,8 @@
 {% extends "base.html" %}
-{% load static %}
 
-{% block title %}{{ post.date }} {{ post.location }}{% endblock %}
+{% block title %}{{ post.location }}.{{ post.date }}{% endblock %}
 
 {% block content %}
-  <div class="container py-5">
     <article>
       <ul>
         <li>
