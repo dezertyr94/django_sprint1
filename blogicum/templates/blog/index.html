@@ -4,25 +4,9 @@
 {% block title %}Лента записей{% endblock %}
 
 {% block content %}
-    <h1>Лента записей</h1> 
-    {% for poster in post %}
-      <hr>
-        <article>
-          <ul>
-            <li>
-              Место: {{ poster.location }}             
-            </li>
-            <li>
-              Дата: {{ poster.date }}
-            </li>
-            <li>
-              Категория: <a href="{% url 'blog:category_posts' poster.category %}">{{ poster.category }}</a>
-            </li>
-          </ul>
-          <p>
-            {{ poster.text|truncatewords:10 }}
-          </p>
-          <a href="{% url 'blog:post_detail' poster.id %}">Читать полный текст</a>
-        </article> 
-    {% endfor %}         
+  <h1>Лента записей</h1> 
+  {% for poster in post %}
+    <hr>
+    {% include "includes/article.html" %}
+  {% endfor %}         
 {% endblock %}

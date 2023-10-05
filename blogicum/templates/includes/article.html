@@ -1,0 +1,38 @@
+{% with request.resolver_match.view_name as v_n %}
+
+<article>
+  <ul>
+    <li>
+      {% if v_n == 'blog:index' %}
+        Место: {{ poster.location }}
+      {% elif v_n == 'blog:post_detail' %}
+        Место: {{ post.location }}
+      {% endif %}
+    </li>
+    <li>
+      {% if v_n == 'blog:index' %}
+        Дата: {{ poster.date }}
+      {% elif v_n == 'blog:post_detail' %}
+        Дата: {{ post.date }}
+      {% endif %}
+    </li>
+    <li>
+      {% if v_n == 'blog:index' %}
+        Категория: <a href="{% url 'blog:category_posts' poster.category %}">{{ poster.category }}</a>
+      {% elif v_n == 'blog:post_detail' %}
+        Категория: <a href="{% url 'blog:category_posts' post.category %}">{{ post.category }}</a>
+      {% endif %}
+    </li>
+  </ul>         
+  <p>
+  {% if v_n == 'blog:index' %}
+    {{ poster.text|truncatewords:10 }}
+  {% elif v_n == 'blog:post_detail' %}
+    {{ post.text|linebreaksbr }}
+  {% endif %}
+  </p>
+  {% if v_n == 'blog:index' %}
+    <a href="{% url 'blog:post_detail' poster.id %}">Читать полный текст</a>
+  {% endif %}          
+</article>                
+{% endwith %}
