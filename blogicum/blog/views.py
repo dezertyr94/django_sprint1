@@ -1,4 +1,4 @@
-from django.http import HttpResponseNotFound
+from django.http import Http404
 from django.shortcuts import render
 
 posts = [
@@ -57,8 +57,8 @@ def post_detail(request, id_post):
     try:
         return render(request, 'blog/detail.html',
                       context={'post': posters[id_post]})
-    except (KeyError):
-        return HttpResponseNotFound('<b><h1>Page not found</h1></b>')
+    except KeyError:
+        raise Http404('<h1>Page not found</h1>')
 
 
 def category_posts(request, category_slug):
