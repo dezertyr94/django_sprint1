@@ -47,17 +47,18 @@ posts = [
 
 def index(request):
     return render(request, 'blog/index.html',
-                  context={'post': reversed(posts)})
+                  context={'posts': reversed(posts)})
 
 
 def post_detail(request, id_post):
+    posters = {}
+    for post in posts:
+        posters[post['id']] = post
     try:
         return render(request, 'blog/detail.html',
-                      context={'post': posts[id_post]})
-    except IndexError:
+                      context={'post': posters[id_post]})
+    except (KeyError):
         return HttpResponseNotFound('<b><h1>Page not found</h1></b>')
-    # Сделал чуть по-другому, без словаря,
-    # мне кажется так проще код выглядит
 
 
 def category_posts(request, category_slug):
